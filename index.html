@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HomeLens – Smarter Home Search</title>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKRJVP8RFH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KKRJVP8RFH');
+  </script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -769,6 +779,166 @@
       color: #ff385c;
       text-decoration: underline;
     }
+
+    /* AI Agent Section Styles */
+    .ai-agent-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .ai-agent-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .ai-agent-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: 0.8;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+      animation: aiPulse 3s infinite;
+    }
+
+    @keyframes aiPulse {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% { 
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    .ai-agent-coming-soon {
+      background: linear-gradient(135deg, #ff5a5f 0%, #ff385c 100%);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      display: inline-block;
+      box-shadow: 0 4px 16px rgba(255, 90, 95, 0.3);
+      animation: aiGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes aiGlow {
+      from { box-shadow: 0 4px 16px rgba(255, 90, 95, 0.3); }
+      to { box-shadow: 0 8px 24px rgba(255, 90, 95, 0.5); }
+    }
+
+    .ai-agent-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+
+    .ai-agent-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ai-agent-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .ai-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 24px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .ai-feature-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .ai-feature-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .ai-feature-text {
+      text-align: left;
+    }
+
+    .ai-feature-text strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .ai-feature-text span {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .ai-agent-cta {
+      margin-top: 40px;
+    }
+
+    .ai-notify-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff5a5f 0%, #ff385c 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(255, 90, 95, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    .ai-notify-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 90, 95, 0.4);
+      background: linear-gradient(135deg, #ff385c 0%, #e11d48 100%);
+    }
+
+    @media (max-width: 768px) {
+      .ai-agent-title {
+        font-size: 2rem;
+      }
+      .ai-agent-subtitle {
+        font-size: 1.1rem;
+      }
+      .ai-agent-features {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .ai-feature-item {
+        padding: 20px;
+      }
+      .ai-agent-icon {
+        font-size: 3rem;
+      }
+    }
   </style>
   <!-- Google Analytics tag goes here. Add your Measurement ID in production. -->
 </head>
@@ -790,6 +960,7 @@
           <span class="carousel-dot" data-index="1"></span>
           <span class="carousel-dot" data-index="2"></span>
           <span class="carousel-dot" data-index="3"></span>
+          <span class="carousel-dot" data-index="4"></span>
         </div>
       </div>
     </div>
@@ -885,6 +1056,48 @@
     </div>
   </section>
 
+  <section class="ai-agent-section">
+    <div class="ai-agent-container">
+      <div class="ai-agent-icon">🤖</div>
+      <div class="ai-agent-coming-soon">Coming Soon</div>
+      <div class="ai-agent-title">Your AI Real Estate Agent</div>
+      <div class="ai-agent-subtitle">Ask questions about any property and get intelligent, personalized answers.</div>
+      <div class="ai-agent-features">
+        <div class="ai-feature-item">
+          <span class="ai-feature-icon">💬</span>
+          <div class="ai-feature-text">
+            <strong>Property Comps & Market Analysis</strong>
+            <span>Get comparable sales and market insights for any property</span>
+          </div>
+        </div>
+        <div class="ai-feature-item">
+          <span class="ai-feature-icon">🏘️</span>
+          <div class="ai-feature-text">
+            <strong>Neighborhood Insights</strong>
+            <span>Learn about safety, schools, and community vibes</span>
+          </div>
+        </div>
+        <div class="ai-feature-item">
+          <span class="ai-feature-icon">📊</span>
+          <div class="ai-feature-text">
+            <strong>Property Valuations</strong>
+            <span>Request detailed property valuations and price analysis</span>
+          </div>
+        </div>
+        <div class="ai-feature-item">
+          <span class="ai-feature-icon">🎯</span>
+          <div class="ai-feature-text">
+            <strong>Buying Recommendations</strong>
+            <span>Get personalized advice for your home buying journey</span>
+          </div>
+        </div>
+      </div>
+      <div class="ai-agent-cta">
+        <a href="mailto:homelenshelp@gmail.com" class="ai-notify-btn">Get Notified When Available</a>
+      </div>
+    </div>
+  </section>
+
   <footer>
     &copy; 2024 HomeLens &mdash; Smarter Home Search.
     <div class="footer-social">
@@ -897,10 +1110,11 @@
 
   <script>
     const images = [
-      {src: 'assets/findEverydayPlaces.png', alt: 'Widget Screenshot'},
-      {src: 'assets/commute.png', alt: 'Commute Tab Screenshot'},
-      {src: 'assets/homeLensScore.png', alt: 'HomeLens Score Widget Screenshot'},
-      {src: 'assets/utilities.png', alt: 'Water Quality Screenshot'}
+      {src: 'assets/findEverydayPlaces.png', alt: 'Widget'},
+      {src: 'assets/commute.png', alt: 'Commute Tab'},
+      {src: 'assets/homeLensScore.png', alt: 'HomeLens Score Widget'},
+      {src: 'assets/utilities.png', alt: 'Water Quality'},
+      {src: 'assets/aiAgent.png', alt: 'AI Agent Screenshot'}
     ];
     let current = 0;
     const imgEl = document.getElementById('hero-carousel-img');
