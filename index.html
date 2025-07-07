@@ -939,6 +939,25 @@
         font-size: 3rem;
       }
     }
+
+    .animated-tagline-container {
+      height: 3.75em;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5em;
+    }
+    .animated-tagline {
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
+      font-size: 1.5em;
+      font-weight: 600;
+      color: #222;
+      text-align: center;
+      min-width: 320px;
+    }
   </style>
   <!-- Google Analytics tag goes here. Add your Measurement ID in production. -->
 </head>
@@ -947,7 +966,11 @@
     <div class="hero-content-row">
       <div class="hero-cta-col">
         <div class="hero-title">HomeLens</div>
-        <div class="hero-subtitle">See what life's really like in any home — before you move in.</div>
+        <div class="animated-tagline-container">
+          <div class="animated-tagline" id="animated-tagline">
+            See what life's really like in any home — before you move in.
+          </div>
+        </div>
         <div class="supported-note">Currently works only on <b>Zillow</b> • <span class="free-badge">100% Free</span></div>
         <a href="https://chrome.google.com/webstore/detail/homelens/PLUGIN_ID" target="_blank">
           <button class="cta-btn">Install HomeLens Plugin <span class="btn-free">• Free</span></button>
@@ -1143,6 +1166,33 @@
     });
     // On load, show the first image
     showImage(0);
+  </script>
+
+  <script>
+    const taglines = [
+      "See what life's really like in any home — before you move in.",
+      "Check water quality, commute, and utilities at a glance.",
+      "Find your everyday places: groceries, gyms, parks, and more.",
+      "Ask our AI Assistant about comps and neighborhoods.",
+      "Get a HomeLens Score for every property you view.",
+      "All your research, in one beautiful Chrome extension."
+    ];
+    let taglineIndex = 0;
+    const taglineEl = document.getElementById('animated-tagline');
+    function showNextTagline() {
+      taglineIndex = (taglineIndex + 1) % taglines.length;
+      taglineEl.style.transform = 'translateY(-2.5em)';
+      setTimeout(() => {
+        taglineEl.textContent = taglines[taglineIndex];
+        taglineEl.style.transition = 'none';
+        taglineEl.style.transform = 'translateY(2.5em)';
+        setTimeout(() => {
+          taglineEl.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+          taglineEl.style.transform = 'translateY(0)';
+        }, 20);
+      }, 600);
+    }
+    setInterval(showNextTagline, 3200);
   </script>
 </body>
 </html> 
